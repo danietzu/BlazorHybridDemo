@@ -1,0 +1,29 @@
+﻿@page "/counter"
+@page "/counter/{Count:int}"
+@using Microsoft.Extensions.Configuration
+
+@inject IConfiguration Configuration
+@inject IJSRuntime JsRuntime
+@inject CounterState CounterState
+
+<h1>Counter</h1>
+
+<p>Current count: @CounterState.CurrentCount</p>
+
+<button class="btn btn-primary" @onclick="CounterState.IncrementCount">Click me</button>
+
+@code {
+
+	[Parameter]
+	public int Count { get; set; }
+
+	async Task IncrementCount()
+	{
+	// await JsRuntime.InvokeVoidAsync("console.log", Configuration["CounterValue"]);
+		if (DeviceInfo.Platform.ToString() == "iOS")
+			Count++;
+		else
+			Count += int.Parse(Configuration["CounterValue"]);
+	}
+
+}

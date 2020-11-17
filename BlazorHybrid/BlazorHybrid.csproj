@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <EnableDefaultCssItems>false</EnableDefaultCssItems>
+        <WwwRootResourcePath>wwwroot</WwwRootResourcePath>
+        <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>portable</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.MobileBlazorBindings" Version="0.5.50-preview" />
+        <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
+        <PackageReference Include="Xamarin.HotReload" Version="2.0.15" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BlazorHybrid.WebUILibrary\BlazorHybrid.WebUILibrary.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\img\404.png" />
+    </ItemGroup>
+    
+</Project>
