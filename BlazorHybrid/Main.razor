@@ -2,15 +2,16 @@
 @* 	<BlazorHybrid.WebUI.App /> *@
 @* </BlazorWebView> *@
 
-<ContentView>
-	<StackLayout>
-
-		<BlazorWebView VerticalOptions="LayoutOptions.FillAndExpand">
-			<BlazorHybrid.WebUI.App />
-		</BlazorWebView>
-
-	</StackLayout>
-</ContentView>
+@if (DeviceInfo.Platform == DevicePlatform.iOS)
+{
+	<XamarinComponents />
+}
+else
+{
+	<BlazorWebView VerticalOptions="LayoutOptions.FillAndExpand">
+		<BlazorHybrid.WebUI.App />
+	</BlazorWebView>
+}
 
 @code {
 
